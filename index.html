@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src ="js/main.js" defer></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
@@ -13,17 +16,18 @@
         <nav class="navbar">
             <div class="container">
             <div class="logo">Eduverse</div>
-            <!-- <span class ="icon">
+            <span class ="icon" id ="menu-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
-            </span> -->
-            <ul class ="nav-links">
+            </span>
+            <ul class ="nav-links ">
                 
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="pages/courses.html">Courses</a></li>
                 <li><a href="pages/about.html">About</a></li>
                 <li><a href="pages/contact.html">Contact</a></li>
+                
             </ul>
             <div class ="auth-buttons">
                 <a href="pages/login.html" class ="btn">Login</a>
@@ -32,5 +36,14 @@
             </div>
         </nav>
     </header>
+    <section class ="hero">
+        <div class ="container">
+            <div class ="hero-content">
+                <h1>Learn Anything, AnyTime</h1>
+                <p>Join Thousands of students learning new skills online. </p>
+                <a href="pages/courses.html" class ="btn primary">Get Started</a>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

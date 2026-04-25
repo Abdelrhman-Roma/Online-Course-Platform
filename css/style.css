@@ -1,8 +1,8 @@
 /* Abdelrhman Taha */
-/* start global rules  */
-/* start varibal */
-:root{
-    /* color  */
+/* ================= GLOBAL ================= */
+
+:root {
+    /* colors */
     --primary: rgb(37, 99, 235);
     --secondary: rgb(16, 185, 129);
     --background: rgb(255, 255, 255);
@@ -12,136 +12,77 @@
     --text-secondary: rgb(107, 114, 128);
     --border: rgb(229, 231, 235);
 
+    /* spacing */
     --space-sm: 8px;
     --space-md: 16px;
     --space-lg: 24px;
     --space-xl: 32px;
 }
-/* end varibal  */
-* ,*::before,*::after{
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
-body{
-    font-family: 'Inter',sans-serif;
+
+body {
+    font-family: 'Inter', sans-serif;
     background-color: var(--background);
-    color: var(--text-main)
+    color: var(--text-main);
+    margin: 0;
 }
-/* start container */
-.container{
+
+/* ================= CONTAINER ================= */
+
+.container {
     padding-left: 15px;
     padding-right: 15px;
     margin-left: auto;
     margin-right: auto;
 }
-/* end container  */
-/* start media quary */
-@media (max-width: 767px) {
 
-    .navbar .container .icon {
-        display: flex;
-    }
+/* ================= NAVBAR ================= */
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-
-        position: absolute;   /* مهم */
-        top: 100%;            /* 👈 تحت navbar مباشرة */
-        left: 0;
-
-        width: 100%;
-        background: var(--primary);
-
-        padding: var(--space-md);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .auth-buttons {
-        display: none;
-    }
-}
-@media (min-width: 768px)
-{
-    .container{
-        width: 750px;
-    }
-}
-@media (min-width: 992px)
-{
-    .container{
-        width: 970px;
-    }
-}
-@media (min-width: 1200px)
-{
-    .container{
-        width: 1170px;
-    }
-}
-/* end global rules  */
-/* end media quary */
-/* start navbar  */
-/* .navbar .container .icon{
-    width: 30px;
-    display:none;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    cursor: pointer;
-}
-.navbar .container .icon span{
-    background-color: white;
-    margin-bottom: 5px;
-    height: 3px;
-    transition: 0.3s;
-}
-.navbar .container .icon span:nth-child(1){
-    width: 100%;
-}
-.navbar .container .icon span:nth-child(2){
-    width: 60%;
-}
-.navbar .container .icon span:nth-child(3){
-    width: 100%;
-}
-.navbar .container .icon:hover span:nth-child(2)
-{
-    width:100%;
-} */
-.navbar .container{
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: var(--space-md);
-}
-.navbar{
+.navbar {
     background: var(--primary);
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     color: white;
     position: sticky;
     top: 0;
-    z-index:1000;
+    z-index: 1000;
 }
-.logo{
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md);
+    position: relative;
+}
+
+/* logo */
+.logo {
     font-family: 'Poppins', sans-serif;
     font-size: 22px;
     font-weight: bold;
 }
-.nav-links{
+
+/* nav links (desktop) */
+.nav-links {
     list-style: none;
     display: flex;
-    gap:var(--space-lg);
+    gap: var(--space-lg);
 }
-.nav-links a{
+
+.nav-links a {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    position: relative;
     transition: 0.3s;
-    position:relative;
 }
-.nav-links a::after{
+
+.nav-links a::after {
     content: "";
     position: absolute;
     bottom: -5px;
@@ -151,15 +92,18 @@ body{
     background: var(--secondary);
     transition: 0.3s;
 }
+
 .nav-links a:hover::after {
     width: 100%;
 }
-.auth-buttons
-{
-    display:flex;
-    gap:var(--space-md)
+
+/* buttons */
+.auth-buttons {
+    display: flex;
+    gap: var(--space-md);
 }
-.btn{
+
+.btn {
     padding: 8px 16px;
     border-radius: 6px;
     border: 1px solid white;
@@ -167,19 +111,67 @@ body{
     color: white;
     transition: 0.3s;
 }
-.primary{
+
+.primary {
     background-color: white;
     color: var(--primary);
 }
-.btn:hover{
+
+.btn:hover {
     opacity: 0.9;
     color: var(--primary);
     background-color: white;
 }
-.primary:hover{
-    color:white;
+
+.primary:hover {
+    color: white;
     background-color: var(--primary);
 }
-/* end navbar */
 
-/* Abdelrhman Taha */
+/* ================= HAMBURGER ICON ================= */
+
+.icon {
+    width: 30px;
+    flex-direction: row-reverse;
+    display: none;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.icon span {
+    background-color: white;
+    height: 3px;
+    width: 100%;
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+.icon span:nth-child(2) {
+    width: 60%;
+}
+
+.icon:hover span:nth-child(2) {
+    width: 100%;
+}
+/*==========================Hero Section==================*/
+.hero{
+    background: var(--section);
+    padding: var(--space-xl);
+    text-align: center;
+}
+.hero h1{
+    font-family: 'Poppins' , sans-serif;
+    font-size: 36px;
+    margin-bottom: var(--space-md);
+    line-height: 1.8;
+}
+.hero p{
+    color: var(--text-secondary);
+    font-size: 18px;
+    margin-bottom: var(--space-lg);
+}
+.hero .btn{
+    background-color: rgb(37, 99, 235);
+    color: white;
+    font-size: 16px;
+}
