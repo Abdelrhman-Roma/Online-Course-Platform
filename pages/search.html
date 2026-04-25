@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/SearchGhayaty.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/search.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap" rel="stylesheet">
+    <title>Search Courses | Eduverse</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">Eduverse</div>
+                <span class="icon" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="search.html">Search</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn">Login</a>
+                    <a href="register.html" class="btn primary">Sign Up</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="search-page">
+        <section class="search-hero">
+            <div class="container">
+                <h1>Search Courses</h1>
+                <p>Find the course that matches your goal, budget, and category.</p>
+
+                <form class="course-search-form" id="course-search-form">
+                    <label for="search-input">Course name</label>
+                    <div class="search-input-row">
+                        <input type="search" id="search-input" placeholder="Example: Web Development">
+                        <button type="submit" class="btn search-submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="search-content">
+            <div class="container">
+                <div class="search-controls">
+                    <div class="filter-group">
+                        <label for="category-filter">Category</label>
+                        <select id="category-filter">
+                            <option value="all">All Categories</option>
+                            <option value="Development">Development</option>
+                            <option value="Data Science">Data Science</option>
+                            <option value="Design">Design</option>
+                            <option value="Business">Business</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="price-filter">Price</label>
+                        <select id="price-filter">
+                            <option value="all">All Prices</option>
+                            <option value="free">Free</option>
+                            <option value="paid">Paid</option>
+                        </select>
+                    </div>
+
+                    <div class="view-buttons" aria-label="Choose results view">
+                        <button type="button" class="view-btn active" data-view="grid">Grid</button>
+                        <button type="button" class="view-btn" data-view="list">List</button>
+                    </div>
+                </div>
+
+                <div class="results-header">
+                    <h2>Results</h2>
+                    <span id="results-count">0 courses</span>
+                </div>
+
+                <div class="results-container grid-view" id="results-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h2>Eduverse</h2>
+                    <p>Learn anything, anytime.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="search.html">Search</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fa-solid fa-envelope"></i> info@eduverse.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +20 123 456 789</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Eduverse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
