@@ -4,7 +4,7 @@
 }
 .search-hero{
     padding: var(--space-xl) 0;
-    background-color: white;
+    background-color: var(--background);
     text-align: center;
 }
 .search-hero h1{
@@ -34,8 +34,10 @@
 .search-input-row input,
 .filter-group select{
     width: 100%;
+    background-color: var(--background);
     border: 1px solid var(--border);
     border-radius: 8px;
+    color: var(--text-main);
     font: inherit;
     padding: 12px var(--space-md);
     outline: none;
@@ -48,15 +50,15 @@
 .search-submit{
     background-color: var(--primary);
     border-color: var(--primary);
-    color: white;
+    color: var(--background);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: var(--space-sm);
 }
 .search-submit:hover{
-    background-color: rgb(30, 64, 175);
-    color: white;
+    background-color: var(--primary);
+    color: var(--background);
 }
 .search-content{
     padding: var(--space-xl) 0;
@@ -75,7 +77,7 @@
 .view-btn{
     border: 1px solid var(--primary);
     border-radius: 8px;
-    background-color: white;
+    background-color: var(--background);
     color: var(--primary);
     cursor: pointer;
     font-weight: 700;
@@ -85,7 +87,7 @@
 .view-btn.active,
 .view-btn:hover{
     background-color: var(--primary);
-    color: white;
+    color: var(--background);
 }
 .results-header{
     display: flex;
@@ -110,7 +112,7 @@
     grid-template-columns: repeat(3, 1fr);
 }
 .search-card{
-    background-color: white;
+    background-color: var(--background);
     border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
@@ -159,7 +161,7 @@
     height: 100%;
 }
 .no-results{
-    background-color: white;
+    background-color: var(--background);
     border: 1px dashed var(--border);
     border-radius: 12px;
     color: var(--text-secondary);

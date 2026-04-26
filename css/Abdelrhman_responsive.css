@@ -5,6 +5,13 @@
 /* Abdelrhman Taha*/
 .icon {
     display: flex;
+    margin-left: var(--space-sm);
+    order: 3;
+}
+
+.theme-toggle {
+    margin-left: auto;
+    order: 2;
 }
 
 .nav-links {
@@ -13,6 +20,7 @@
     position: absolute;
     top: 100%;
     left: 0;
+    transform: none;
     width: 100%;
     background: var(--primary);
     padding: var(--space-md);
