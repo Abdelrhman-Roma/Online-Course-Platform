@@ -1,0 +1,253 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Eduverse</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/omar-login.style.css">
+    <link rel="stylesheet" href="../css/omar-dark-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <script src="../js/omar-auth.js" defer></script>
+    <script src="../js/omar-validation.js" defer></script>
+</head>
+<body class="profile-page" data-page="profile">
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">Eduverse</div>
+                <span class="icon" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="dashboard-student.html">Dashboard</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <div class="auth-buttons">
+                        <a href="omar-login.html" class="btn">Login</a>
+                        <a href="omar-register.html" class="btn primary">Sign Up</a>
+                    </div>
+                    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">Dark mode</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile-section">
+            <div class="container">
+                <div class="profile-header-card">
+                    <div class="profile-avatar" id="profile-avatar" aria-hidden="true">OH</div>
+                    <div class="profile-summary">
+                        <p class="section-tag">Student profile</p>
+                        <h1 id="profile-display-name">Omar Habib</h1>
+                        <p id="profile-display-track">Frontend Development Track</p>
+                    </div>
+                    <div class="profile-actions">
+                        <a href="dashboard-student.html" class="btn">Go to Dashboard</a>
+                    </div>
+                </div>
+
+                <div class="profile-layout">
+                    <aside class="profile-sidebar">
+                        <div class="profile-info-card">
+                            <h2>Account Overview</h2>
+                            <ul class="profile-meta-list">
+                                <li><strong>Email:</strong> <span id="profile-overview-email">omar@example.com</span></li>
+                                <li><strong>Role:</strong> <span id="profile-overview-role">Student</span></li>
+                                <li><strong>Joined:</strong> April 2026</li>
+                                <li><strong>Track:</strong> <span id="profile-overview-track">Frontend Development</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="profile-info-card">
+                            <h2>Quick Stats</h2>
+                            <div class="stats-grid">
+                                <div class="stat-box">
+                                    <span class="stat-number">06</span>
+                                    <span class="stat-label">Courses</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-number">12</span>
+                                    <span class="stat-label">Quizzes</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-number">85%</span>
+                                    <span class="stat-label">Progress</span>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <div class="profile-content">
+                        <div class="profile-form-card">
+                            <div class="auth-card-header">
+                                <h2>Edit Profile</h2>
+                                <p>Update your account details and personal information.</p>
+                            </div>
+
+                            <form id="profile-form" class="auth-form" novalidate>
+                                <div id="profile-form-message" class="form-message" role="alert" aria-live="polite"></div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profile-full-name">Full Name</label>
+                                        <input
+                                            type="text"
+                                            id="profile-full-name"
+                                            name="fullName"
+                                            value="Omar Habib"
+                                            autocomplete="name"
+                                            required
+                                            minlength="3"
+                                            aria-describedby="profile-full-name-error"
+                                        >
+                                        <small id="profile-full-name-error" class="error-message" aria-live="polite"></small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="profile-username">Username</label>
+                                        <input
+                                            type="text"
+                                            id="profile-username"
+                                            name="username"
+                                            value="omar_habib"
+                                            autocomplete="username"
+                                            required
+                                            minlength="3"
+                                            aria-describedby="profile-username-error"
+                                        >
+                                        <small id="profile-username-error" class="error-message" aria-live="polite"></small>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profile-email">Email Address</label>
+                                        <input
+                                            type="email"
+                                            id="profile-email"
+                                            name="email"
+                                            value="omar@example.com"
+                                            autocomplete="email"
+                                            required
+                                            aria-describedby="profile-email-error"
+                                        >
+                                        <small id="profile-email-error" class="error-message" aria-live="polite"></small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="profile-phone">Phone Number</label>
+                                        <input
+                                            type="tel"
+                                            id="profile-phone"
+                                            name="phone"
+                                            value="+20 100 000 0000"
+                                            autocomplete="tel"
+                                            aria-describedby="profile-phone-error"
+                                        >
+                                        <small id="profile-phone-error" class="error-message" aria-live="polite"></small>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="profile-track">Learning Track</label>
+                                        <select
+                                            id="profile-track"
+                                            name="track"
+                                            required
+                                            aria-describedby="profile-track-error"
+                                        >
+                                            <option value="frontend" selected>Frontend Development</option>
+                                            <option value="backend">Backend Development</option>
+                                            <option value="design">UI/UX Design</option>
+                                            <option value="business">Business Skills</option>
+                                        </select>
+                                        <small id="profile-track-error" class="error-message" aria-live="polite"></small>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="profile-location">Location</label>
+                                        <input
+                                            type="text"
+                                            id="profile-location"
+                                            name="location"
+                                            value="Cairo, Egypt"
+                                            autocomplete="address-level2"
+                                            aria-describedby="profile-location-error"
+                                        >
+                                        <small id="profile-location-error" class="error-message" aria-live="polite"></small>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="profile-bio">Short Bio</label>
+                                    <textarea
+                                        id="profile-bio"
+                                        name="bio"
+                                        rows="5"
+                                        placeholder="Tell us a little about yourself and your goals."
+                                        aria-describedby="profile-bio-error"
+                                    >Passionate about building clean and responsive web interfaces.</textarea>
+                                    <small id="profile-bio-error" class="error-message" aria-live="polite"></small>
+                                </div>
+
+                                <button type="submit" class="btn primary submit-btn">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h2>Eduverse</h2>
+                    <p>Learn anything, anytime.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fa-solid fa-envelope"></i> info@eduverse.com</p>
+                    <p><i class="fa-solid fa-phone"></i> +20 123 456 789</p>
+
+                    <div class="social-icons">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Eduverse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+

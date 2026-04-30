@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Eduverse</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/omar-login.style.css">
+    <link rel="stylesheet" href="../css/omar-dark-theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <script src="../js/omar-auth.js" defer></script>
+    <script src="../js/omar-validation.js" defer></script>
+</head>
+<body class="auth-page" data-page="login">
+    <main class="auth-main">
+        <div class="auth-shell">
+            <div class="auth-top">
+                <a href="../index.html" class="auth-brand">Eduverse</a>
+                <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">Dark mode</button>
+            </div>
+
+            <div class="auth-layout">
+                <div class="auth-card">
+                    <div class="auth-card-header">
+                        <h2>Login</h2>
+                        <p>Welcome back. Enter your email and password to continue.</p>
+                    </div>
+
+                    <form id="login-form" class="auth-form" novalidate>
+                        <div id="login-form-message" class="form-message" role="alert" aria-live="polite"></div>
+
+                        <div class="form-group">
+                            <label for="login-email">Email Address</label>
+                            <input type="email" id="login-email" name="email" placeholder="name@example.com" autocomplete="email" required aria-describedby="login-email-error">
+                            <small id="login-email-error" class="error-message" aria-live="polite"></small>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="label-row">
+                                <label for="login-password">Password</label>
+                                <a href="omar-register.html" class="text-link">Create account</a>
+                            </div>
+                            <input type="password" id="login-password" name="password" placeholder="Enter your password" autocomplete="current-password" minlength="8" required aria-describedby="login-password-error">
+                            <small id="login-password-error" class="error-message" aria-live="polite"></small>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-field" for="remember-me">
+                                <input type="checkbox" id="remember-me" name="rememberMe">
+                                <span>Remember me</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn primary submit-btn">Login</button>
+
+                        <p class="form-footer">
+                            Don't have an account?
+                            <a href="omar-register.html" class="text-link">Register here</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
+

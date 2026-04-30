@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Eduverse</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/omar-login.style.css">
+    <link rel="stylesheet" href="../css/omar-dark-theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <script src="../js/omar-auth.js" defer></script>
+    <script src="../js/omar-validation.js" defer></script>
+</head>
+<body class="auth-page" data-page="register">
+    <main class="auth-main">
+        <div class="auth-shell register-shell">
+            <div class="auth-top">
+                <a href="../index.html" class="auth-brand">Eduverse</a>
+                <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">Dark mode</button>
+            </div>
+
+            <div class="auth-layout">
+                <div class="auth-card">
+                    <div class="auth-card-header">
+                        <h2>Create Account</h2>
+                        <p>Fill in the form below to create your account.</p>
+                    </div>
+
+                    <form id="register-form" class="auth-form" novalidate>
+                        <div id="register-form-message" class="form-message" role="alert" aria-live="polite"></div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="register-full-name">Full Name</label>
+                                <input type="text" id="register-full-name" name="fullName" placeholder="Omar Habib" autocomplete="name" required minlength="3" aria-describedby="register-full-name-error">
+                                <small id="register-full-name-error" class="error-message" aria-live="polite"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register-username">Username</label>
+                                <input type="text" id="register-username" name="username" placeholder="omar_habib" autocomplete="username" required minlength="3" aria-describedby="register-username-error">
+                                <small id="register-username-error" class="error-message" aria-live="polite"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="register-email">Email Address</label>
+                                <input type="email" id="register-email" name="email" placeholder="name@example.com" autocomplete="email" required aria-describedby="register-email-error">
+                                <small id="register-email-error" class="error-message" aria-live="polite"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register-phone">Phone Number</label>
+                                <input type="tel" id="register-phone" name="phone" placeholder="+20 100 000 0000" autocomplete="tel" aria-describedby="register-phone-error">
+                                <small id="register-phone-error" class="error-message" aria-live="polite"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="register-role">Role</label>
+                                <select id="register-role" name="role" required aria-describedby="register-role-error">
+                                    <option value="">Select your role</option>
+                                    <option value="student">Student</option>
+                                    <option value="instructor">Instructor</option>
+                                </select>
+                                <small id="register-role-error" class="error-message" aria-live="polite"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register-track">Learning Track</label>
+                                <select id="register-track" name="track" required aria-describedby="register-track-error">
+                                    <option value="">Choose a track</option>
+                                    <option value="frontend">Frontend Development</option>
+                                    <option value="backend">Backend Development</option>
+                                    <option value="design">UI/UX Design</option>
+                                    <option value="business">Business Skills</option>
+                                </select>
+                                <small id="register-track-error" class="error-message" aria-live="polite"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="register-password">Password</label>
+                                <input type="password" id="register-password" name="password" placeholder="Create a strong password" autocomplete="new-password" required minlength="8" aria-describedby="register-password-error">
+                                <p class="field-note">Use 8+ characters with letters and numbers.</p>
+                                <small id="register-password-error" class="error-message" aria-live="polite"></small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="register-confirm-password">Confirm Password</label>
+                                <input type="password" id="register-confirm-password" name="confirmPassword" placeholder="Repeat your password" autocomplete="new-password" required minlength="8" aria-describedby="register-confirm-password-error">
+                                <small id="register-confirm-password-error" class="error-message" aria-live="polite"></small>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-field" for="terms-agreement">
+                                <input type="checkbox" id="terms-agreement" name="terms" required>
+                                <span>I agree to the terms and privacy policy.</span>
+                            </label>
+                            <small id="terms-agreement-error" class="error-message" aria-live="polite"></small>
+                        </div>
+
+                        <button type="submit" class="btn primary submit-btn">Create Account</button>
+
+                        <p class="form-footer">
+                            Already have an account?
+                            <a href="omar-login.html" class="text-link">Login here</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+
+
