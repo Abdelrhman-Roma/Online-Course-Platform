@@ -5,6 +5,13 @@
 /* Abdelrhman Taha*/
 .icon {
     display: flex;
+    margin-left: var(--space-sm);
+    order: 3;
+}
+
+.theme-toggle {
+    margin-left: auto;
+    order: 2;
 }
 
 .nav-links {
@@ -13,6 +20,7 @@
     position: absolute;
     top: 100%;
     left: 0;
+    transform: none;
     width: 100%;
     background: var(--primary);
     padding: var(--space-md);
@@ -50,6 +58,37 @@
 .social-icons a{
     margin: 0 8px;
 }
+.search-hero h1{
+    font-size: 28px;
+}
+.search-input-row{
+    flex-direction: column;
+}
+.search-submit{
+    justify-content: center;
+}
+.search-controls{
+    grid-template-columns: 1fr;
+}
+.view-buttons{
+    width: 100%;
+}
+.view-btn{
+    flex: 1;
+}
+.results-header{
+    align-items: flex-start;
+    flex-direction: column;
+}
+.results-container.grid-view{
+    grid-template-columns: 1fr;
+}
+.list-view .search-card{
+    grid-template-columns: 1fr;
+}
+.list-view .search-card img{
+    height: 190px;
+}
 /* Abdelrhman Taha*/
 }
 
@@ -59,6 +98,9 @@
 @media (min-width: 768px) {
     .container {
         width: 750px;
+    }
+    .results-container.grid-view{
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -73,6 +115,9 @@
 @media (min-width: 1200px) {
     .container {
         width: 1170px;
+    }
+    .results-container.grid-view{
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 /* no one edit this part */

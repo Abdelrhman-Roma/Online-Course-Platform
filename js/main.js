@@ -1,11 +1,81 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const toggle = document.getElementById("menu-toggle");
+    const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.querySelector(".nav-links");
 
-
-    if (toggle) {
-        toggle.addEventListener("click", () => {
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
             navLinks.classList.toggle("active");
+        });
+    }
+
+    const faqQuestions = document.querySelectorAll(".faq-item > .question");
+
+    faqQuestions.forEach((question) => {
+        const item = question.closest(".faq-item");
+        const answer = item.querySelector(".answer");
+
+        if (!answer) {
+            return;
+        }
+
+        answer.style.display = "none";
+
+        item.addEventListener("click", (event) => {
+            event.stopPropagation();
+
+            const isActive = item.classList.contains("active");
+
+            faqQuestions.forEach((otherQuestion) => {
+                const otherItem = otherQuestion.closest(".faq-item");
+                const otherAnswer = otherItem.querySelector(".answer");
+
+                if (otherItem && otherAnswer) {
+                    otherItem.classList.remove("active");
+                    otherAnswer.style.display = "none";
+                }
+            });
+
+            item.classList.toggle("active", !isActive);
+            answer.style.display = isActive ? "none" : "block";
+        });
+    });
+
+    const themeButton = document.getElementById("theme-toggle");
+
+    const updateThemeButton = () => {
+        if (!themeButton) {
+            return;
+        }
+
+        const isDark = document.body.classList.contains("dark");
+        const icon = themeButton.querySelector("i");
+        const text = themeButton.querySelector("span");
+
+        themeButton.setAttribute("aria-pressed", String(isDark));
+        themeButton.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+
+        if (icon) {
+            icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+        }
+
+        if (text) {
+            text.textContent = isDark ? "Light" : "Dark";
+        }
+    };
+
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark");
+    }
+
+    updateThemeButton();
+
+    if (themeButton) {
+        themeButton.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+
+            const selectedTheme = document.body.classList.contains("dark") ? "dark" : "light";
+            localStorage.setItem("theme", selectedTheme);
+            updateThemeButton();
         });
     }
 });
