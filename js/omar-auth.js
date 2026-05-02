@@ -2,7 +2,7 @@
     registeredUser: "eduverseRegisteredUser",
     currentUser: "eduverseCurrentUser",
     profile: "eduverseProfile",
-    theme: "eduverseTheme"
+    theme: "theme"
 };
 
 const menuToggle = document.getElementById("menu-toggle");
@@ -19,10 +19,20 @@ if (menuToggle && navLinks) {
 function applyTheme(theme) {
     const isDark = theme === "dark";
 
-    document.body.classList.toggle("dark-theme", isDark);
+    document.body.classList.toggle("dark", isDark);
 
     if (themeToggle) {
-        themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
+        const icon = themeToggle.querySelector("i");
+        const text = themeToggle.querySelector("span");
+
+        if (icon) {
+            icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+        }
+
+        if (text) {
+            text.textContent = isDark ? "Light" : "Dark";
+        }
+
         themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
         themeToggle.setAttribute("aria-pressed", String(isDark));
     }
@@ -34,7 +44,7 @@ function initializeThemeToggle() {
 
     if (themeToggle) {
         themeToggle.addEventListener("click", () => {
-            const nextTheme = document.body.classList.contains("dark-theme") ? "light" : "dark";
+            const nextTheme = document.body.classList.contains("dark") ? "light" : "dark";
             localStorage.setItem(STORAGE_KEYS.theme, nextTheme);
             applyTheme(nextTheme);
         });
@@ -52,6 +62,29 @@ function readStorage(key) {
 
 function writeStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
+}
+
+function updateAuthButtons() {
+    const authButtons = document.querySelector(".auth-buttons");
+
+    if (!authButtons) {
+        return;
+    }
+
+    const currentUser = readStorage(STORAGE_KEYS.currentUser);
+    const profile = readStorage(STORAGE_KEYS.profile);
+    const registeredUser = readStorage(STORAGE_KEYS.registeredUser);
+    const displayName =
+        profile?.fullName ||
+        registeredUser?.fullName ||
+        currentUser?.username ||
+        currentUser?.email;
+
+    if (!currentUser && !profile) {
+        return;
+    }
+
+    authButtons.innerHTML = `<a href="omar-profile.html" class="btn primary">${displayName || "My Profile"}</a>`;
 }
 
 function formatTrackLabel(trackValue) {
@@ -256,4 +289,5 @@ window.EduverseAuth = {
 
 initializeThemeToggle();
 initializeProfilePage();
+updateAuthButtons();
 

@@ -1,4 +1,41 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const readJsonStorage = (key) => {
+        try {
+            const value = localStorage.getItem(key);
+            return value ? JSON.parse(value) : null;
+        } catch (error) {
+            return null;
+        }
+    };
+
+    const getProfileHref = () => {
+        const isPagesPath = window.location.pathname.includes("/pages/");
+        return isPagesPath ? "omar-profile.html" : "pages/omar-profile.html";
+    };
+
+    const updateAuthButtons = () => {
+        const authButtons = document.querySelector(".auth-buttons");
+
+        if (!authButtons) {
+            return;
+        }
+
+        const currentUser = readJsonStorage("eduverseCurrentUser");
+        const profile = readJsonStorage("eduverseProfile");
+        const registeredUser = readJsonStorage("eduverseRegisteredUser");
+        const displayName =
+            profile?.fullName ||
+            registeredUser?.fullName ||
+            currentUser?.username ||
+            currentUser?.email;
+
+        if (!currentUser && !profile) {
+            return;
+        }
+
+        authButtons.innerHTML = `<a href="${getProfileHref()}" class="btn primary">${displayName || "My Profile"}</a>`;
+    };
+
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.querySelector(".nav-links");
 
@@ -78,4 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
             updateThemeButton();
         });
     }
+
+    updateAuthButtons();
 });

@@ -4,37 +4,43 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Web Development",
             category: "Development",
             price: "Free",
-            image: "../assets/images/web Course.webp"
+            image: "../assets/images/web Course.webp",
+            detailsPage: "nadapages.html"
         },
         {
             title: "Data Science",
             category: "Data Science",
             price: "$45",
-            image: "../assets/images/Data Science.jpg"
+            image: "../assets/images/Data Science.jpg",
+            detailsPage: "naada1pages.html"
         },
         {
             title: "UI/UX Design",
             category: "Design",
             price: "$30",
-            image: "../assets/images/UI-UX.jpg"
+            image: "../assets/images/UI-UX.jpg",
+            detailsPage: "naada2pages.html"
         },
         {
             title: "JavaScript Projects",
             category: "Development",
             price: "$25",
-            image: "../assets/images/javascript.webp"
+            image: "../assets/images/javascript.webp",
+            detailsPage: "naada3pages.html"
         },
         {
             title: "Business Analytics",
             category: "Business",
             price: "$40",
-            image: "../assets/images/business.jpg"
+            image: "../assets/images/business.jpg",
+            detailsPage: "naada4pages.html"
         },
         {
             title: "Design Thinking Basics",
             category: "Design",
             price: "Free",
-            image: "../assets/images/design_thinking_course.webp"
+            image: "../assets/images/design_thinking_course.webp",
+            detailsPage: "naada5pages.html"
         }
     ];
 
@@ -75,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span>${course.category}</span>
                 <h3>${course.title}</h3>
                 <p>${course.price}</p>
-                <a href="course-details.html" class="btn">View Details</a>
+                <a href="${course.detailsPage}" class="btn">View Details</a>
             </div>
         `;
 

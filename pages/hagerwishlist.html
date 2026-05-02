@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wishlist & Saved Courses | Eduverse</title>
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/Abdelrhman_style.css">
+  <link rel="stylesheet" href="../css/Abdelrhman_responsive.css">
+  <link rel="stylesheet" href="../css/hager.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="../js/main.js" defer></script>
+  <script src="../js/hager.js" defer></script>
+</head>
+<body class="hager-page">
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">Eduverse</div>
+        <span class="icon" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="../index.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button type="button" id="theme-toggle" class="theme-toggle">
+          <i class="fa-solid fa-moon"></i>
+          <span>Dark</span>
+        </button>
+        <div class="auth-buttons">
+          <a href="omar-login.html" class="btn">Login</a>
+          <a href="omar-register.html" class="btn primary">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <section class="card wishlist-header">
+      <div>
+        <h1><i class="fa-solid fa-star"></i> My Saved Courses</h1>
+        <p>Your personal collection of courses to learn later.</p>
+      </div>
+
+      <form class="wishlist-search" onsubmit="return false;">
+        <input type="search" class="form-control" placeholder="Search saved courses">
+        <button type="submit" class="btn">Search</button>
+      </form>
+    </section>
+
+    <div class="view-controls">
+      <button type="button" class="btn btn-secondary" onclick="setView('grid')">
+        <i class="fa-solid fa-border-all"></i>
+        Grid View
+      </button>
+      <button type="button" class="btn btn-secondary" onclick="setView('list')">
+        <i class="fa-solid fa-list"></i>
+        List View
+      </button>
+      <button type="button" class="btn btn-secondary" onclick="setView('details')">
+        <i class="fa-solid fa-circle-info"></i>
+        Details View
+      </button>
+    </div>
+
+    <section id="wishlist-container" class="grid-container">
+      <article class="card">
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@tiktok/video/7106594312292453675" data-video-id="7106594312292453675">
+          <section></section>
+        </blockquote>
+        <h3>Full-Stack Web Development</h3>
+        <p><strong>Category:</strong> Programming</p>
+        <p class="course-desc">
+          Learn everything from HTML and CSS to React, Node.js, and databases. This comprehensive bootcamp will take you from beginner to professional.
+        </p>
+        <button type="button" class="btn enroll-btn">Enroll Now</button>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&auto=format&fit=crop" alt="UI Design" class="card-img-top">
+        <h3>Advanced UI/UX Masterclass</h3>
+        <p><strong>Category:</strong> Design</p>
+        <p class="course-desc">
+          Master Figma, prototyping, and modern design principles to build stunning, user-centric applications.
+        </p>
+        <button type="button" class="btn enroll-btn">Enroll Now</button>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=500&auto=format&fit=crop" alt="Backend" class="card-img-top">
+        <h3>Python for Data Science</h3>
+        <p><strong>Category:</strong> Data</p>
+        <p class="course-desc">
+          Dive deep into Pandas, NumPy, and Machine Learning algorithms. Analyze real-world datasets with comprehensive materials.
+        </p>
+        <button type="button" class="btn enroll-btn">Enroll Now</button>
+      </article>
+    </section>
+
+    <div class="pagination">
+      <button type="button" class="btn btn-secondary" disabled>Previous</button>
+      <button type="button" class="btn">1</button>
+      <button type="button" class="btn btn-secondary">2</button>
+      <button type="button" class="btn btn-secondary">Next</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h2>Eduverse</h2>
+          <p>Learn anything, anytime.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p><i class="fa-solid fa-envelope"></i> info@eduverse.com</p>
+          <p><i class="fa-solid fa-phone"></i> +20 123 456 789</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Eduverse. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script async src="https://www.tiktok.com/embed.js"></script>
+</body>
+</html>

@@ -39,6 +39,10 @@
 }
 
 .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     padding: 10px 16px;
     border: 1px solid var(--border, #d7dfec);
     border-radius: 999px;
@@ -47,6 +51,8 @@
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
+    line-height: 1;
+    transition: 0.3s;
 }
 
 .theme-toggle:hover {
@@ -242,6 +248,85 @@
     box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
+body.dark.auth-page {
+    --primary: rgb(96, 165, 250);
+    --border: rgb(75, 85, 99);
+    --text-main: rgb(243, 244, 246);
+    --text-secondary: rgb(156, 163, 175);
+    background:
+        radial-gradient(circle at top left, rgba(96, 165, 250, 0.16), transparent 28%),
+        linear-gradient(180deg, rgb(17, 24, 39) 0%, rgb(31, 41, 55) 100%);
+    color: var(--text-main);
+}
+
+body.dark.auth-page .auth-brand,
+body.dark.auth-page .auth-card-header h2,
+body.dark.auth-page .form-group label,
+body.dark.auth-page .checkbox-field {
+    color: var(--text-main);
+}
+
+body.dark.auth-page .auth-card {
+    background-color: rgb(17, 24, 39);
+    border-color: var(--border);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+}
+
+body.dark.auth-page .theme-toggle {
+    background-color: rgb(31, 41, 55);
+    border-color: var(--border);
+    color: var(--text-main);
+}
+
+body.dark.auth-page .theme-toggle:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+body.dark.auth-page .auth-card-header p,
+body.dark.auth-page .form-footer,
+body.dark.auth-page .field-note {
+    color: var(--text-secondary);
+}
+
+body.dark.auth-page .form-group input,
+body.dark.auth-page .form-group select,
+body.dark.auth-page .form-group textarea {
+    background-color: rgb(31, 41, 55);
+    border-color: var(--border);
+    color: var(--text-main);
+}
+
+body.dark.auth-page .form-group input::placeholder,
+body.dark.auth-page .form-group textarea::placeholder {
+    color: rgb(156, 163, 175);
+}
+
+body.dark.auth-page .form-group input:focus,
+body.dark.auth-page .form-group select:focus,
+body.dark.auth-page .form-group textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.18);
+}
+
+body.dark.auth-page .text-link {
+    color: rgb(147, 197, 253);
+}
+
+body.dark.auth-page .form-message.success {
+    color: rgb(52, 211, 153);
+}
+
+body.dark.auth-page .form-message.error,
+body.dark.auth-page .error-message {
+    color: rgb(248, 113, 113);
+}
+
+body.dark.auth-page .input-error {
+    border-color: rgb(248, 113, 113) !important;
+    box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.16);
+}
+
 /* Profile page */
 
 .profile-page {
@@ -331,87 +416,6 @@
 
 .profile-meta-list strong {
     color: var(--text-main, #0f172a);
-}
-
-body.dark-theme.auth-page,
-body.dark-theme.profile-page {
-    background: #0f172a;
-    color: #e5e7eb;
-}
-
-body.dark-theme .auth-brand {
-    color: white;
-}
-
-body.dark-theme .auth-card,
-body.dark-theme .profile-info-card,
-body.dark-theme .profile-form-card {
-    background-color: #111827;
-    border-color: #334155;
-}
-
-body.dark-theme .profile-header-card {
-    background-color: #1d4ed8;
-}
-
-body.dark-theme .theme-toggle {
-    background-color: #111827;
-    border-color: #334155;
-    color: white;
-}
-
-body.dark-theme .theme-toggle:hover {
-    border-color: #60a5fa;
-    color: #93c5fd;
-}
-
-body.dark-theme .auth-card-header h2,
-body.dark-theme .profile-summary h1,
-body.dark-theme .profile-info-card h2,
-body.dark-theme .form-group label,
-body.dark-theme .profile-meta-list strong {
-    color: white;
-}
-
-body.dark-theme .auth-card-header p,
-body.dark-theme .form-footer,
-body.dark-theme .field-note,
-body.dark-theme .profile-note,
-body.dark-theme .profile-bio-preview,
-body.dark-theme .profile-meta-list {
-    color: #cbd5e1;
-}
-
-body.dark-theme .text-link {
-    color: #93c5fd;
-}
-
-body.dark-theme .form-group input,
-body.dark-theme .form-group select,
-body.dark-theme .form-group textarea {
-    background-color: #0f172a;
-    border-color: #334155;
-    color: white;
-}
-
-body.dark-theme .form-group input:focus,
-body.dark-theme .form-group select:focus,
-body.dark-theme .form-group textarea:focus {
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
-}
-
-body.dark-theme .form-message.success {
-    color: #4ade80;
-}
-
-body.dark-theme .form-message.error,
-body.dark-theme .error-message {
-    color: #f87171;
-}
-
-body.dark-theme .input-error {
-    border-color: #f87171 !important;
-    box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.12);
 }
 
 @media (max-width: 991px) {

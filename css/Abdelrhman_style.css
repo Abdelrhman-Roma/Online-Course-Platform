@@ -40,10 +40,14 @@ body {
     background-color: var(--background);
     color: var(--text-main);
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 /* ================= CONTAINER ================= */
 
 .container {
+    width: min(100% - 32px, 1170px);
     padding-left: 15px;
     padding-right: 15px;
     margin-left: auto;
@@ -204,14 +208,14 @@ body {
 /*==========================Hero Section==================*/
 .hero{
     background: var(--section);
-    padding: var(--space-xl);
+    padding: 56px 0;
     text-align: center;
 }
 .hero h1{
     font-family: 'Poppins' , sans-serif;
-    font-size: 36px;
+    font-size: clamp(32px, 4vw, 52px);
     margin-bottom: var(--space-md);
-    line-height: 1.8;
+    line-height: 1.2;
 }
 .hero p{
     color: var(--text-secondary);
@@ -225,7 +229,7 @@ body {
 }
 /* Courses Cards */
 .courses{
-    padding: var(--space-xl) 0;
+    padding: 56px 0;
     text-align: center;
 }
 .courses h2{
@@ -275,10 +279,54 @@ body {
 .card:hover img{
     transform: scale(1.05);
 }
+
+/* ================= Course Detail Pages ================= */
+.course-detail-page {
+    padding: 56px 0;
+}
+
+.course-detail-page .container {
+    max-width: 980px;
+}
+
+.course-detail-page .course-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(30px, 4vw, 46px);
+    text-align: center;
+    margin: 0 0 var(--space-xl);
+}
+
+.course-detail-page .card {
+    background-color: var(--section);
+    width: 100%;
+    padding: 32px;
+    margin-bottom: var(--space-lg);
+}
+
+.course-detail-page .card h2 {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 0;
+}
+
+.course-detail-page .instructor {
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.course-detail-page .instructor:last-child {
+    border-bottom: 0;
+}
+
+.course-detail-page ul {
+    margin: 0;
+    padding-left: 22px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
 /* =========================Feature section========================= */
 .features{
     background: var(--section);
-    padding: var(--space-xl) 0;
+    padding: 56px 0;
     text-align: center;
 }
 .feature h2{
@@ -312,10 +360,12 @@ body {
     color: var(--text-secondary);
 }
 /*=================================== FAQ section=====================================*/
-.faq{
+.faq,
+.fag{
     padding: var(--space-xl) 0;
 }
-.faq h2{
+.faq h2,
+.fag h2{
     text-align: center;
     margin-bottom: var(--space-lg);
     font-family: 'Poppins' ,sans-serif;
@@ -341,6 +391,7 @@ body {
     background-color: var(--primary);
     color: var(--background);
     padding: var(--space-xl);
+    margin-top: auto;
 }
 .footer-content{
     display: grid;

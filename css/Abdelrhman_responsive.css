@@ -96,9 +96,6 @@
 /* no one edit this part */
 /* tablet */
 @media (min-width: 768px) {
-    .container {
-        width: 750px;
-    }
     .results-container.grid-view{
         grid-template-columns: repeat(2, 1fr);
     }
@@ -106,16 +103,10 @@
 
 /* small desktop */
 @media (min-width: 992px) {
-    .container {
-        width: 970px;
-    }
 }
 
 /* large desktop */
 @media (min-width: 1200px) {
-    .container {
-        width: 1170px;
-    }
     .results-container.grid-view{
         grid-template-columns: repeat(3, 1fr);
     }
