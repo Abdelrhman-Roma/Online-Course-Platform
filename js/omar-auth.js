@@ -111,11 +111,11 @@ function updateMobileAuthLinks() {
         existingMobileAuth.remove();
     }
 
-    const mobileAuthItem = document.createElement("li");
-    mobileAuthItem.className = "mobile-auth-links";
-    mobileAuthItem.innerHTML = authButtons.innerHTML;
-    navLinks.appendChild(mobileAuthItem);
-}
+//     const mobileAuthItem = document.createElement("li");
+//     mobileAuthItem.className = "mobile-auth-links";
+//     mobileAuthItem.innerHTML = authButtons.innerHTML;
+//     navLinks.appendChild(mobileAuthItem);
+ }
 
 function formatTrackLabel(trackValue) {
     // Turn stored track values into readable labels.

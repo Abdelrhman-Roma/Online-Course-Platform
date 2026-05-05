@@ -10,42 +10,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.querySelector(".nav-links");
-    const authButtons = document.querySelector(".auth-buttons");
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener("click", () => {
             navLinks.classList.toggle("active");
-
-            if (authButtons) {
-                authButtons.classList.toggle("active");
-            }
         });
     }
 
+    const authButtons = document.querySelector(".auth-buttons");
     const currentUser = readJsonStorage("eduverseCurrentUser");
 
-    if (authButtons && currentUser) {
+    
+if (authButtons && currentUser) {
         const profile = readJsonStorage("eduverseProfile");
         const registeredUser = readJsonStorage("eduverseRegisteredUser");
-        let displayName = "My Profile";
-
-        if (profile && profile.fullName) {
-            displayName = profile.fullName;
-        } else if (registeredUser && registeredUser.fullName) {
-            displayName = registeredUser.fullName;
-        } else if (currentUser.username) {
-            displayName = currentUser.username;
-        } else if (currentUser.email) {
-            displayName = currentUser.email;
-        }
-
+        const displayName =
+            profile?.fullName ||
+            registeredUser?.fullName ||
+            currentUser.username ||
+            currentUser.email ||
+            "My Profile";
         const profileHref = window.location.pathname.includes("/pages/")
             ? "omar-profile.html"
             : "pages/omar-profile.html";
 
         authButtons.innerHTML = `<a href="${profileHref}" class="btn primary">${displayName}</a>`;
     }
-
     const faqQuestions = document.querySelectorAll(".faq-item > .question");
 
     faqQuestions.forEach((question) => {

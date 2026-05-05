@@ -40,7 +40,7 @@
 }
 
 /* When the menu is open, show the normal auth buttons under the links. */
-.auth-buttons.active {
+.navbar .container:has(.nav-links.active) .auth-buttons {
     display: flex;
     justify-content: center;
     gap: var(--space-sm);
@@ -50,20 +50,20 @@
     padding-top: var(--space-md);
     border-top: 1px solid rgba(255, 255, 255, 0.25);
 }
-.auth-buttons.active .btn {
+.navbar .container:has(.nav-links.active) .auth-buttons .btn {
     min-width: 110px;
     text-align: center;
     background-color: var(--primary);
     border-color: var(--background);
     color: var(--background);
 }
-.auth-buttons.active .btn:hover,
-.auth-buttons.active .primary:hover {
+.navbar .container:has(.nav-links.active) .auth-buttons .btn:hover,
+.navbar .container:has(.nav-links.active) .auth-buttons .primary:hover {
     background-color: var(--background);
     border-color: var(--background);
     color: var(--primary);
 }
-.auth-buttons.active .primary {
+.navbar .container:has(.nav-links.active) .auth-buttons .primary {
     background-color: var(--primary);
     border-color: var(--background);
     color: var(--background);
@@ -145,14 +145,14 @@
         padding: 8px 10px;
     }
 
-    .auth-buttons.active,
-    .auth-buttons.active .btn,
+    .navbar .container:has(.nav-links.active) .auth-buttons,
+    .navbar .container:has(.nav-links.active) .auth-buttons .btn,
     .results-actions,
     .wishlist-link {
         width: 100%;
     }
 
-    .auth-buttons.active {
+    .navbar .container:has(.nav-links.active) .auth-buttons {
         flex-direction: column;
     }
 
@@ -175,7 +175,11 @@
     .footer {
         padding: var(--space-lg) var(--space-md);
     }
+    .view-buttons{
+        display: none;
+    }
 }
+
 
 /*==============================================================================*/
 /* no one edit this part */
