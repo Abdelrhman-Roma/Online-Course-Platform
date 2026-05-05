@@ -76,16 +76,20 @@
 }
 .view-btn{
     border: 1px solid var(--primary);
-    border-radius: 8px;
-    background-color: var(--background);
-    color: var(--primary);
+    border-radius: 6px;
+    background-color: var(--primary);
+    color: var(--background);
     cursor: pointer;
     font-weight: 700;
-    padding: 12px var(--space-md);
+    padding: 10px var(--space-md);
     transition: 0.3s;
 }
-.view-btn.active,
 .view-btn:hover{
+    background-color: var(--primary);
+    color: var(--secondary);
+}
+.view-btn.active{
+    border-color: var(--primary);
     background-color: var(--primary);
     color: var(--background);
 }
@@ -103,6 +107,25 @@
 #results-count{
     color: var(--text-secondary);
     font-weight: 700;
+}
+.results-actions{
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.wishlist-link{
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--background);
+}
+.wishlist-link:hover{
+    background-color: var(--primary);
+    color: var(--background);
 }
 .results-container{
     display: grid;

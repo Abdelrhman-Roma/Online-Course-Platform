@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="../js/main.js" defer></script>
   <script src="../js/hager.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body class="hager-page">
   <header>
@@ -27,7 +28,7 @@
           <li><a href="courses.html">Courses</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="search.html">Search</a></li>
-          <li><a href="../index.html">About</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
         <button type="button" id="theme-toggle" class="theme-toggle">
@@ -56,15 +57,15 @@
     </section>
 
     <div class="view-controls">
-      <button type="button" class="btn btn-secondary" onclick="setView('grid')">
+      <button type="button" class="btn btn-secondary active" onclick="setView('grid')" data-view-button="grid">
         <i class="fa-solid fa-border-all"></i>
         Grid View
       </button>
-      <button type="button" class="btn btn-secondary" onclick="setView('list')">
+      <button type="button" class="btn btn-secondary" onclick="setView('list')" data-view-button="list">
         <i class="fa-solid fa-list"></i>
         List View
       </button>
-      <button type="button" class="btn btn-secondary" onclick="setView('details')">
+      <button type="button" class="btn btn-secondary" onclick="setView('details')" data-view-button="details">
         <i class="fa-solid fa-circle-info"></i>
         Details View
       </button>
@@ -72,9 +73,7 @@
 
     <section id="wishlist-container" class="grid-container">
       <article class="card">
-        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@tiktok/video/7106594312292453675" data-video-id="7106594312292453675">
-          <section></section>
-        </blockquote>
+        <img src="../assets/images/web Course.webp" alt="Full-Stack Web Development" class="card-img-top">
         <h3>Full-Stack Web Development</h3>
         <p><strong>Category:</strong> Programming</p>
         <p class="course-desc">
@@ -84,7 +83,7 @@
       </article>
 
       <article class="card">
-        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&auto=format&fit=crop" alt="UI Design" class="card-img-top">
+        <img src="../assets/images/UI-UX.jpg" alt="Advanced UI/UX Masterclass" class="card-img-top">
         <h3>Advanced UI/UX Masterclass</h3>
         <p><strong>Category:</strong> Design</p>
         <p class="course-desc">
@@ -140,7 +139,5 @@
       </div>
     </div>
   </footer>
-
-  <script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>

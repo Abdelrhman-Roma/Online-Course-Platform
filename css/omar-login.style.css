@@ -1,5 +1,27 @@
 ﻿/* Auth pages */
 
+/* These tokens match the main site so auth/profile pages share the same theme. */
+:root {
+    --primary: rgb(37, 99, 235);
+    --secondary: rgb(16, 185, 129);
+    --background: rgb(255, 255, 255);
+    --section: rgb(249, 250, 251);
+    --text-main: rgb(17, 24, 39);
+    --text-secondary: rgb(107, 114, 128);
+    --border: rgb(229, 231, 235);
+}
+
+/* Dark mode changes the colors once here, then every component follows the tokens. */
+body.dark {
+    --primary: rgb(96, 165, 250);
+    --secondary: rgb(52, 211, 153);
+    --background: rgb(17, 24, 39);
+    --section: rgb(31, 41, 55);
+    --text-main: rgb(243, 244, 246);
+    --text-secondary: rgb(156, 163, 175);
+    --border: rgb(75, 85, 99);
+}
+
 .auth-page {
     min-height: 100vh;
     background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
@@ -64,7 +86,7 @@
 .profile-header-card,
 .profile-info-card,
 .profile-form-card {
-    background-color: white;
+    background-color: var(--background, white);
     border: 1px solid var(--border, #d7dfec);
     border-radius: 18px;
     box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
@@ -143,7 +165,8 @@
     padding: 13px 14px;
     border: 1px solid var(--border, #d7dfec);
     border-radius: 10px;
-    background-color: white;
+    background-color: var(--background, white);
+    color: var(--text-main, #0f172a);
     outline: none;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -248,63 +271,76 @@
     box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
-body.dark.auth-page {
-    --primary: rgb(96, 165, 250);
-    --border: rgb(75, 85, 99);
-    --text-main: rgb(243, 244, 246);
-    --text-secondary: rgb(156, 163, 175);
-    background:
-        radial-gradient(circle at top left, rgba(96, 165, 250, 0.16), transparent 28%),
-        linear-gradient(180deg, rgb(17, 24, 39) 0%, rgb(31, 41, 55) 100%);
+body.dark.auth-page,
+body.dark.profile-page {
+    background: var(--background);
     color: var(--text-main);
 }
 
 body.dark.auth-page .auth-brand,
 body.dark.auth-page .auth-card-header h2,
 body.dark.auth-page .form-group label,
-body.dark.auth-page .checkbox-field {
+body.dark.auth-page .checkbox-field,
+body.dark.profile-page .auth-card-header h2,
+body.dark.profile-page .form-group label,
+body.dark.profile-page .profile-info-card h2,
+body.dark.profile-page .profile-meta-list strong {
     color: var(--text-main);
 }
 
-body.dark.auth-page .auth-card {
-    background-color: rgb(17, 24, 39);
+body.dark.auth-page .auth-card,
+body.dark.profile-page .profile-info-card,
+body.dark.profile-page .profile-form-card {
+    background-color: var(--section);
     border-color: var(--border);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.24);
 }
 
-body.dark.auth-page .theme-toggle {
-    background-color: rgb(31, 41, 55);
+body.dark.auth-page .theme-toggle,
+body.dark.profile-page .theme-toggle {
+    background-color: var(--section);
     border-color: var(--border);
     color: var(--text-main);
 }
 
-body.dark.auth-page .theme-toggle:hover {
+body.dark.auth-page .theme-toggle:hover,
+body.dark.profile-page .theme-toggle:hover {
     border-color: var(--primary);
     color: var(--primary);
 }
 
 body.dark.auth-page .auth-card-header p,
 body.dark.auth-page .form-footer,
-body.dark.auth-page .field-note {
+body.dark.auth-page .field-note,
+body.dark.profile-page .auth-card-header p,
+body.dark.profile-page .profile-meta-list {
     color: var(--text-secondary);
 }
 
 body.dark.auth-page .form-group input,
 body.dark.auth-page .form-group select,
-body.dark.auth-page .form-group textarea {
-    background-color: rgb(31, 41, 55);
+body.dark.auth-page .form-group textarea,
+body.dark.profile-page .form-group input,
+body.dark.profile-page .form-group select,
+body.dark.profile-page .form-group textarea {
+    background-color: var(--background);
     border-color: var(--border);
     color: var(--text-main);
 }
 
 body.dark.auth-page .form-group input::placeholder,
-body.dark.auth-page .form-group textarea::placeholder {
-    color: rgb(156, 163, 175);
+body.dark.auth-page .form-group textarea::placeholder,
+body.dark.profile-page .form-group input::placeholder,
+body.dark.profile-page .form-group textarea::placeholder {
+    color: var(--text-secondary);
 }
 
 body.dark.auth-page .form-group input:focus,
 body.dark.auth-page .form-group select:focus,
-body.dark.auth-page .form-group textarea:focus {
+body.dark.auth-page .form-group textarea:focus,
+body.dark.profile-page .form-group input:focus,
+body.dark.profile-page .form-group select:focus,
+body.dark.profile-page .form-group textarea:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.18);
 }
@@ -331,7 +367,7 @@ body.dark.auth-page .input-error {
 
 .profile-page {
     min-height: 100vh;
-    background-color: #f5f9ff;
+    background-color: var(--section, #f5f9ff);
 }
 
 .profile-section {
@@ -360,6 +396,7 @@ body.dark.auth-page .input-error {
     padding: 28px;
 }
 
+/* The profile header keeps the avatar, summary, and action buttons together. */
 .profile-header-card {
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -395,6 +432,19 @@ body.dark.auth-page .input-error {
     border-color: white;
 }
 
+.profile-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.profile-actions .logout-btn {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* Desktop profile layout: overview cards on the left, edit form on the right. */
 .profile-layout {
     display: grid;
     grid-template-columns: 280px 1fr;
@@ -421,6 +471,31 @@ body.dark.auth-page .input-error {
 @media (max-width: 991px) {
     .profile-layout {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Tablet profile layout after the navbar switches to hamburger mode. */
+@media (max-width: 1050px) {
+    .profile-page .navbar .container {
+        gap: var(--space-sm);
+    }
+
+    .profile-page .nav-actions {
+        margin-left: auto;
+        order: 2;
+    }
+
+    .profile-page .icon {
+        order: 3;
+    }
+
+    .profile-header-card {
+        grid-template-columns: auto 1fr;
+    }
+
+    .profile-actions {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
     }
 }
 

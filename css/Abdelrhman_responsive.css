@@ -1,8 +1,7 @@
 /* ================= RESPONSIVE ================= */
 
-/* mobile */
-@media (max-width: 767px) {
-/* Abdelrhman Taha*/
+/* Switch the navbar to the hamburger layout before links and buttons get crowded. */
+@media (max-width: 1050px) {
 .icon {
     display: flex;
     margin-left: var(--space-sm);
@@ -17,14 +16,14 @@
 .nav-links {
     display: none;
     flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
+    order: 4;
+    position: static;
     transform: none;
     width: 100%;
     background: var(--primary);
     padding: var(--space-md);
     z-index: 100;
+    gap: 0;
 }
 
 .nav-links.active {
@@ -38,6 +37,36 @@
 
 .auth-buttons {
     display: none;
+}
+
+/* When the menu is open, show the normal auth buttons under the links. */
+.auth-buttons.active {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+    order: 5;
+    width: 100%;
+    padding-top: var(--space-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+.auth-buttons.active .btn {
+    min-width: 110px;
+    text-align: center;
+    background-color: var(--primary);
+    border-color: var(--background);
+    color: var(--background);
+}
+.auth-buttons.active .btn:hover,
+.auth-buttons.active .primary:hover {
+    background-color: var(--background);
+    border-color: var(--background);
+    color: var(--primary);
+}
+.auth-buttons.active .primary {
+    background-color: var(--primary);
+    border-color: var(--background);
+    color: var(--background);
 }
 .hero h1{
     font-size: 26px;
@@ -80,6 +109,10 @@
     align-items: flex-start;
     flex-direction: column;
 }
+.results-actions{
+    width: 100%;
+    justify-content: space-between;
+}
 .results-container.grid-view{
     grid-template-columns: 1fr;
 }
@@ -89,7 +122,59 @@
 .list-view .search-card img{
     height: 190px;
 }
-/* Abdelrhman Taha*/
+}
+
+/* Phone-specific spacing so cards, buttons, and forms stay inside the viewport. */
+@media (max-width: 767px) {
+    .container {
+        width: min(100% - 20px, 1170px);
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .navbar .container {
+        gap: var(--space-sm);
+    }
+
+    .theme-toggle span {
+        display: none;
+    }
+
+    .theme-toggle {
+        min-width: 38px;
+        padding: 8px 10px;
+    }
+
+    .auth-buttons.active,
+    .auth-buttons.active .btn,
+    .results-actions,
+    .wishlist-link {
+        width: 100%;
+    }
+
+    .auth-buttons.active {
+        flex-direction: column;
+    }
+
+    .view-buttons {
+        flex-direction: column;
+    }
+
+    .courses,
+    .features,
+    .course-detail-page {
+        padding: 36px 0;
+    }
+
+    .card,
+    .feature,
+    .course-detail-page .card {
+        padding: var(--space-md);
+    }
+
+    .footer {
+        padding: var(--space-lg) var(--space-md);
+    }
 }
 
 /*==============================================================================*/
@@ -103,6 +188,9 @@
 
 /* small desktop */
 @media (min-width: 992px) {
+     /* .results-container.grid-view{ 
+        grid-template-columns: repeat(3, 1fr);
+    }  */
 }
 
 /* large desktop */

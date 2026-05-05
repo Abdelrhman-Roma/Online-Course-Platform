@@ -8,41 +8,42 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    const getProfileHref = () => {
-        const isPagesPath = window.location.pathname.includes("/pages/");
-        return isPagesPath ? "omar-profile.html" : "pages/omar-profile.html";
-    };
-
-    const updateAuthButtons = () => {
-        const authButtons = document.querySelector(".auth-buttons");
-
-        if (!authButtons) {
-            return;
-        }
-
-        const currentUser = readJsonStorage("eduverseCurrentUser");
-        const profile = readJsonStorage("eduverseProfile");
-        const registeredUser = readJsonStorage("eduverseRegisteredUser");
-        const displayName =
-            profile?.fullName ||
-            registeredUser?.fullName ||
-            currentUser?.username ||
-            currentUser?.email;
-
-        if (!currentUser && !profile) {
-            return;
-        }
-
-        authButtons.innerHTML = `<a href="${getProfileHref()}" class="btn primary">${displayName || "My Profile"}</a>`;
-    };
-
     const menuToggle = document.getElementById("menu-toggle");
     const navLinks = document.querySelector(".nav-links");
+    const authButtons = document.querySelector(".auth-buttons");
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener("click", () => {
             navLinks.classList.toggle("active");
+
+            if (authButtons) {
+                authButtons.classList.toggle("active");
+            }
         });
+    }
+
+    const currentUser = readJsonStorage("eduverseCurrentUser");
+
+    if (authButtons && currentUser) {
+        const profile = readJsonStorage("eduverseProfile");
+        const registeredUser = readJsonStorage("eduverseRegisteredUser");
+        let displayName = "My Profile";
+
+        if (profile && profile.fullName) {
+            displayName = profile.fullName;
+        } else if (registeredUser && registeredUser.fullName) {
+            displayName = registeredUser.fullName;
+        } else if (currentUser.username) {
+            displayName = currentUser.username;
+        } else if (currentUser.email) {
+            displayName = currentUser.email;
+        }
+
+        const profileHref = window.location.pathname.includes("/pages/")
+            ? "omar-profile.html"
+            : "pages/omar-profile.html";
+
+        authButtons.innerHTML = `<a href="${profileHref}" class="btn primary">${displayName}</a>`;
     }
 
     const faqQuestions = document.querySelectorAll(".faq-item > .question");
@@ -57,23 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         answer.style.display = "none";
 
-        item.addEventListener("click", (event) => {
-            event.stopPropagation();
-
-            const isActive = item.classList.contains("active");
-
-            faqQuestions.forEach((otherQuestion) => {
-                const otherItem = otherQuestion.closest(".faq-item");
-                const otherAnswer = otherItem.querySelector(".answer");
-
-                if (otherItem && otherAnswer) {
-                    otherItem.classList.remove("active");
-                    otherAnswer.style.display = "none";
-                }
-            });
-
-            item.classList.toggle("active", !isActive);
-            answer.style.display = isActive ? "none" : "block";
+        item.addEventListener("click", () => {
+            const isOpen = answer.style.display === "block";
+            answer.style.display = isOpen ? "none" : "block";
         });
     });
 
@@ -87,9 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const isDark = document.body.classList.contains("dark");
         const icon = themeButton.querySelector("i");
         const text = themeButton.querySelector("span");
-
-        themeButton.setAttribute("aria-pressed", String(isDark));
-        themeButton.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
 
         if (icon) {
             icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
@@ -109,12 +93,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (themeButton) {
         themeButton.addEventListener("click", () => {
             document.body.classList.toggle("dark");
-
-            const selectedTheme = document.body.classList.contains("dark") ? "dark" : "light";
-            localStorage.setItem("theme", selectedTheme);
+            localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light");
             updateThemeButton();
         });
     }
-
-    updateAuthButtons();
 });

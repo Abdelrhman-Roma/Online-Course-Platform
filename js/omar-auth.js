@@ -1,6 +1,9 @@
 ﻿const STORAGE_KEYS = {
+    // Saved account created from the register page.
     registeredUser: "eduverseRegisteredUser",
+    // Active login session.
     currentUser: "eduverseCurrentUser",
+    // Editable profile information.
     profile: "eduverseProfile",
     theme: "theme"
 };
@@ -11,12 +14,14 @@ const themeToggle = document.getElementById("theme-toggle");
 
 if (menuToggle && navLinks) {
     menuToggle.addEventListener("click", () => {
+        // Open or close the hamburger menu on small screens.
         const isActive = navLinks.classList.toggle("active");
         menuToggle.setAttribute("aria-expanded", String(isActive));
     });
 }
 
 function applyTheme(theme) {
+    // The body class lets CSS variables switch the whole page theme.
     const isDark = theme === "dark";
 
     document.body.classList.toggle("dark", isDark);
@@ -39,6 +44,7 @@ function applyTheme(theme) {
 }
 
 function initializeThemeToggle() {
+    // Load the saved theme first, then save any new user choice.
     const savedTheme = localStorage.getItem(STORAGE_KEYS.theme) || "light";
     applyTheme(savedTheme);
 
@@ -52,6 +58,7 @@ function initializeThemeToggle() {
 }
 
 function readStorage(key) {
+    // Keep the page working even if saved JSON is damaged.
     try {
         const value = localStorage.getItem(key);
         return value ? JSON.parse(value) : null;
@@ -61,10 +68,12 @@ function readStorage(key) {
 }
 
 function writeStorage(key, value) {
+    // Save objects in one consistent JSON format.
     localStorage.setItem(key, JSON.stringify(value));
 }
 
 function updateAuthButtons() {
+    // After login, show a profile shortcut instead of Login and Sign Up.
     const authButtons = document.querySelector(".auth-buttons");
 
     if (!authButtons) {
@@ -80,14 +89,36 @@ function updateAuthButtons() {
         currentUser?.username ||
         currentUser?.email;
 
-    if (!currentUser && !profile) {
+    if (!currentUser) {
         return;
     }
 
     authButtons.innerHTML = `<a href="omar-profile.html" class="btn primary">${displayName || "My Profile"}</a>`;
 }
 
+function updateMobileAuthLinks() {
+    // Copy the current auth button into the hamburger menu.
+    const navLinks = document.querySelector(".nav-links");
+    const authButtons = document.querySelector(".auth-buttons");
+
+    if (!navLinks || !authButtons) {
+        return;
+    }
+
+    const existingMobileAuth = navLinks.querySelector(".mobile-auth-links");
+
+    if (existingMobileAuth) {
+        existingMobileAuth.remove();
+    }
+
+    const mobileAuthItem = document.createElement("li");
+    mobileAuthItem.className = "mobile-auth-links";
+    mobileAuthItem.innerHTML = authButtons.innerHTML;
+    navLinks.appendChild(mobileAuthItem);
+}
+
 function formatTrackLabel(trackValue) {
+    // Turn stored track values into readable labels.
     const trackLabels = {
         frontend: "Frontend Development",
         backend: "Backend Development",
@@ -99,6 +130,7 @@ function formatTrackLabel(trackValue) {
 }
 
 function getInitials(name) {
+    // Use the first letters of the user's name for the avatar.
     return (name || "")
         .trim()
         .split(/\s+/)
@@ -108,6 +140,7 @@ function getInitials(name) {
 }
 
 function setText(id, value) {
+    // Update optional profile text safely.
     const element = document.getElementById(id);
 
     if (element) {
@@ -116,6 +149,7 @@ function setText(id, value) {
 }
 
 function buildProfileFromUser(user) {
+    // Create profile data from a registered user, with defaults for missing fields.
     if (!user) {
         return null;
     }
@@ -134,6 +168,7 @@ function buildProfileFromUser(user) {
 }
 
 function getProfileDataFromForm(form) {
+    // Read all profile form inputs into a single object.
     const trackSelect = form.querySelector("#profile-track");
     const registeredUser = readStorage(STORAGE_KEYS.registeredUser);
 
@@ -151,6 +186,7 @@ function getProfileDataFromForm(form) {
 }
 
 function applyProfileData(profileData) {
+    // Fill the form, profile header, overview, and avatar from saved data.
     if (!profileData) {
         return;
     }
@@ -181,6 +217,7 @@ function applyProfileData(profileData) {
 }
 
 function initializeProfilePage() {
+    // Only run profile setup when this script is on the profile page.
     if (document.body?.dataset.page !== "profile") {
         return;
     }
@@ -194,7 +231,22 @@ function initializeProfilePage() {
     }
 }
 
+function initializeLogoutButton() {
+    // Logout clears only the active session, not the saved registered account.
+    const logoutButton = document.getElementById("logout-button");
+
+    if (!logoutButton) {
+        return;
+    }
+
+    logoutButton.addEventListener("click", () => {
+        localStorage.removeItem(STORAGE_KEYS.currentUser);
+        window.location.href = "omar-login.html";
+    });
+}
+
 function handleRegisterSubmit(form, setFormMessage) {
+    // Save the new account and create its first profile record.
     const account = {
         fullName: form.querySelector("#register-full-name").value.trim(),
         username: form.querySelector("#register-username").value.trim(),
@@ -220,6 +272,7 @@ function handleRegisterSubmit(form, setFormMessage) {
 }
 
 function handleLoginSubmit(form, setFormMessage, setFieldError) {
+    // Compare the login form with the saved account.
     const email = form.querySelector("#login-email").value.trim();
     const password = form.querySelector("#login-password").value;
     const savedUser = readStorage(STORAGE_KEYS.registeredUser);
@@ -258,6 +311,7 @@ function handleLoginSubmit(form, setFormMessage, setFieldError) {
 }
 
 function handleProfileSubmit(form, setFormMessage) {
+    // Save profile edits and keep the account data in sync.
     const profileData = getProfileDataFromForm(form);
     const savedUser = readStorage(STORAGE_KEYS.registeredUser) || {};
 
@@ -289,5 +343,6 @@ window.EduverseAuth = {
 
 initializeThemeToggle();
 initializeProfilePage();
+initializeLogoutButton();
 updateAuthButtons();
-
+updateMobileAuthLinks();
